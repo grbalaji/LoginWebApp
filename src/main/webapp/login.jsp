@@ -2,17 +2,11 @@
 <%
     String userName = request.getParameter("uname");    
     String password = request.getParameter("password");
-   /*  Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jwt",
-            "root", "mukesh");
-    Statement st = con.createStatement();
-    ResultSet rs;
-    rs = st.executeQuery("select * from user where userName='" + userName + "' and password='" +password + "'");
-    if (rs.next()) { */
-    	 if (userName==password) {
+  
+    	 if (userName.equals(password)) {
         session.setAttribute("userid", userName);
         response.sendRedirect("success.jsp");
     } else {
-        out.println("Invalid password <a href='index.jsp'>try again </a>"+userName+"--"+password);
+        out.println("Invalid password <a href='index.jsp'>try again </a>");
     }
 %>
